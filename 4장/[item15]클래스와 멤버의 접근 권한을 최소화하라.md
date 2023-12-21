@@ -137,7 +137,7 @@ public static final List<Thing> VALUES =
 	Collections.unmodifiableList(Arrays.asList(PRIVATE_VALUES));
 ```
 
-1. 배열을 `private`으로 만들고 그 복사본을 반환하는 `public` 메서드를 추가(방어적 복사)
+2. 배열을 `private`으로 만들고 그 복사본을 반환하는 `public` 메서드를 추가(방어적 복사)
 
 ```java
 private static final Thing[] PRIVATE_VALUES = { ... };

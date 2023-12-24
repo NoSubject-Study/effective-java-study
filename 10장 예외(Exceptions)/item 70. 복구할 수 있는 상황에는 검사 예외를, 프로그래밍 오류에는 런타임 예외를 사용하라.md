@@ -1,8 +1,6 @@
 ## 복구할 수 있는 상황에는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 사용하라
 Use Checked Exceptions for Recoverable Conditions
 
-<img src="https://github.com/NoSubject-Study/effective-java-study/assets/37797830/f73e08b3-dfe9-4bd6-b53a-6663211de34c" width="600"></img>
-
 ### 검사 예외 vs 비검사 예외
 <img src="https://github.com/NoSubject-Study/effective-java-study/assets/37797830/f73e08b3-dfe9-4bd6-b53a-6663211de34c" width="600"></img>
 - 검사 예외(Checked Exception) :

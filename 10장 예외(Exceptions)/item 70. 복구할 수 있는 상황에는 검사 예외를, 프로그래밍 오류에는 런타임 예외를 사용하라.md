@@ -2,23 +2,23 @@
 Use Checked Exceptions for Recoverable Conditions
 
 ### 검사 예외 vs 비검사 예외
-<img src="https://github.com/NoSubject-Study/effective-java-study/assets/37797830/f73e08b3-dfe9-4bd6-b53a-6663211de34c" width="600"></img>
+<img src="https://github.com/NoSubject-Study/effective-java-study/assets/37797830/f73e08b3-dfe9-4bd6-b53a-6663211de34c" width="600"></img>    
 - 검사 예외(Checked Exception) :
   - 상속 : Exception 
   - 컴파일러에 의해 강제로 처리해야 하는 예외. 즉, 코드에서 이 예외를 처리하거나 던지도록 요구됨.
   - try-catch 블록을 사용하여 검사 예외를 처리하거나, 예외를 더 상위 메서드로 전달하기 위해 throws 절을 사용
   - 예외처리 필수 !
   - <b>개발자의 실수 감소</b>
-  - <b>레이어간의 의존성이 높아지고, 스트림 내에서 사용이 어려움</b>
+  - <b>레이어간의 의존성이 높아지고, 스트림 내에서 사용이 어려움</b>     
 - 비검사 예외(Unchecked Exception) :
   - RunTimeException 
   - 컴파일러에서 예외 처리를 강제하지 않는 예외. 따라서 개발자의 주의로 처리하거나, 처리하지 않아도 컴파일 오류가 발생하지 않음
   - 예외처리 필수 아님
-  - <b>개발자의 실수가 많아질 수 있음<b>
-  - <b>레이어간의 의존성이 낮아짐</b>
- 
+  - <b>개발자의 실수가 많아질 수 있음</b>
+  - <b>레이어간의 의존성이 낮아짐</b>    
+     
 
-### 호출하는 쪽에서 복구하리라 여겨지는 상황이라면 검사 예외 (Checked Exceptions) 를 사용하라
+### 호출하는 쪽에서 복구하리라 여겨지는 상황이라면 검사 예외 (Checked Exceptions) 를 사용하라    
 ``` java
 private static void checkedExceptionWithThrows() throws FileNotFoundException {
     File file = new File("not_existing_file.txt");

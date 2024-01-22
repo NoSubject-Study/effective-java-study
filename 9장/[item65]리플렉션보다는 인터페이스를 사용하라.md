@@ -65,7 +65,7 @@ public class TestClass {
     ...
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws NoSuchMethodException {
     TestClass testClass = new TestClass();
     Method doSomething = TestClass.class.getMethod("doSomething");
     doSomeThing.invoke(testClass); // 예외 검사 X

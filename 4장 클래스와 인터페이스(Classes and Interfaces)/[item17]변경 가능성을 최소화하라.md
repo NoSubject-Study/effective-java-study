@@ -243,7 +243,7 @@ BigInteger bigInteger = ...;
 BigInteger newBigInteger = bigInteger.flipMultipleBits(0, 1, 2);  // 다단계 작업을 기본 기능으로 제공
 ```
 
-1. `package-private`의 가변 동반 클래스(mutable companion class)를 제공
+2. `package-private`의 가변 동반 클래스(mutable companion class)를 제공
     - 불변 클래스를 사용하는 클라이언트가 수행하려는 복잡한 작업을 정확히 예측할 수 없는 경우 유용
     - Ex) 문자열을 연결할 때
         - `String` 클래스는 불변 객체이므로, 문자열을 더하는 연산을 수행할 때마다 새로운 `String` 객체가 생성되는 문제를 해결하기 위해 `StringBuilder`(가변 동반 클래스)를 제공

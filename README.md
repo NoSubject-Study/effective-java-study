@@ -28,6 +28,8 @@
 | Item 16 | [public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/4%EC%9E%A5/%5Bitem16%5Dpublic%20%ED%81%B4%EB%9E%98%EC%8A%A4%EC%97%90%EC%84%9C%EB%8A%94%20public%20%ED%95%84%EB%93%9C%EA%B0%80%20%EC%95%84%EB%8B%8C%20%EC%A0%91%EA%B7%BC%EC%9E%90%20%EB%A9%94%EC%84%9C%EB%93%9C%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
 | Item 17 | [변경 가능성을 최소화하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/4%EC%9E%A5/%5Bitem17%5D%EB%B3%80%EA%B2%BD%20%EA%B0%80%EB%8A%A5%EC%84%B1%EC%9D%84%20%EC%B5%9C%EC%86%8C%ED%99%94%ED%95%98%EB%9D%BC.md) |
 | Item 18 | [상속보다는 컴포지션을 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/4%EC%9E%A5/%5Bitem18%5D%EC%83%81%EC%86%8D%EB%B3%B4%EB%8B%A4%EB%8A%94%20%EC%BB%B4%ED%8F%AC%EC%A7%80%EC%85%98%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
+| Item 19 | [상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/4%EC%9E%A5%20%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4(Classes%20and%20Interfaces)/%5Bitem19%5D%EC%83%81%EC%86%8D%EC%9D%84%20%EA%B3%A0%EB%A0%A4%ED%95%B4%20%EC%84%A4%EA%B3%84%ED%95%98%EA%B3%A0%20%EB%AC%B8%EC%84%9C%ED%99%94%ED%95%98%EB%9D%BC.%20%EA%B7%B8%EB%9F%AC%EC%A7%80%20%EC%95%8A%EC%95%98%EB%8B%A4%EB%A9%B4%20%EC%83%81%EC%86%8D%EC%9D%84%20%EA%B8%88%EC%A7%80%ED%95%98%EB%9D%BC.md) |
+| Item 20 | [추상 클래스보다는 인터페이스를 우선하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/4%EC%9E%A5%20%ED%81%B4%EB%9E%98%EC%8A%A4%EC%99%80%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4(Classes%20and%20Interfaces)/%5Bitem20%5D%EC%B6%94%EC%83%81%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%B3%B4%EB%8B%A4%EB%8A%94%20%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%A5%BC%20%EC%9A%B0%EC%84%A0%ED%95%98%EB%9D%BC.md) |
 
 ## 5장 제네릭
 
@@ -47,6 +49,8 @@
 | 아이템 이름 | 주제 |
 |--------|--------|
 | Item 34 | [int 상수 대신 열거 타입을 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem34%5Dint%20%EC%83%81%EC%88%98%20%EB%8C%80%EC%8B%A0%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
+| Item 35 | [ordinal 메서드 대신 인스턴스 필드를 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem35%5Dordinal%20%EB%A9%94%EC%84%9C%EB%93%9C%20%EB%8C%80%EC%8B%A0%20%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%20%ED%95%84%EB%93%9C%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
+| Item 36 | [비트 필드 대신 EnumSet을 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem36%5D%EB%B9%84%ED%8A%B8%20%ED%95%84%EB%93%9C%20%EB%8C%80%EC%8B%A0%20EnumSet%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
 
 ## 7장 람다와 스트림
 
@@ -99,3 +103,6 @@
 | 아이템 이름 | 주제 |
 |--------|--------|
 | Item 85 | [자바 직렬화의 대안을 찾으라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem85%5D%EC%9E%90%EB%B0%94%20%EC%A7%81%EB%A0%AC%ED%99%94%EC%9D%98%20%EB%8C%80%EC%95%88%EC%9D%84%20%EC%B0%BE%EC%9C%BC%EB%9D%BC.md) |
+| Item 86 | [Serializable을 구현할지는 신중히 결정하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem86%5DSerializable%EC%9D%84%20%EA%B5%AC%ED%98%84%ED%95%A0%EC%A7%80%EB%8A%94%20%EC%8B%A0%EC%A4%91%ED%9E%88%20%EA%B2%B0%EC%A0%95%ED%95%98%EB%9D%BC.md) |
+| Item 87 | [커스텀 직렬화 형태를 고려해보라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem87%5D%EC%BB%A4%EC%8A%A4%ED%85%80%20%EC%A7%81%EB%A0%AC%ED%99%94%20%ED%98%95%ED%83%9C%EB%A5%BC%20%EA%B3%A0%EB%A0%A4%ED%95%B4%EB%B3%B4%EB%9D%BC.md) |
+

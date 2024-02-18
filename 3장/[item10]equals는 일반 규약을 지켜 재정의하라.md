@@ -1,5 +1,5 @@
 
-# item-09 equals는 일반 규약을 지켜 재정의하라
+# item-10 equals는 일반 규약을 지켜 재정의하라
 
 ## equals 메소드 오버라이딩
 Object 클래스는 모든 클래스의 최상위 부모로, equals, hashCode, toString, clone, finalize 같은 nonfinal 메소드들을 갖고 있다,
@@ -28,7 +28,7 @@ equals 메소드를 오버라이드할 때는 다음과 같은 규약을 준수�
 
 - null이 아닌 모든 참조 값 x에 대해, x.equals(null)은 false를 반환해야 한다.
 
-## 규약을 어기는 경우
+## 대칭성을 어기는 경우
 
 대소문자 구별을 하지 않은 CaseInsensitiveString 클래스의 예시를 보자
 
@@ -51,7 +51,8 @@ public final class CaseInsensitiveString {
     }
 }
 ```
-이 코드에서 CaseInsensitiveString 인스턴스는 String과 equals 비교를 시도할 때 대칭성을 위반한다. CaseInsensitiveString 인스턴스는 String을 "동등하다"고 간주할 수 있지만, String의 equals 메소드는 CaseInsensitiveString을 인식하지 못해 false를 반환한다.
+이 코드에서 CaseInsensitiveString 인스턴스는 String과 equals 비교를 시도할 때 대칭성을 위반한다.
+CaseInsensitiveString 인스턴스는 String을 "동등하다"고 간주할 수 있지만, String의 equals 메소드는 CaseInsensitiveString을 인식하지 못해 false를 반환한다.
 
 해결법은? CaseInsensitiveString 인스턴스들만 비교하도록 equals 메소드를 단순화한다.
 
@@ -63,7 +64,89 @@ public final class CaseInsensitiveString {
 ```
 이 방식으로 equals 메소드를 구현하면 대칭성, 전이성, 반사성을 모두 만족시키며, 논리적 동치성을 따질 수 있다.
 
+또한 대칭성을 비롯한 규약을 지키는 것이 중요한 이유는
+```java
+CaseInsensitiveString cis = new CaseInsensitiveString("Polish");
+String s = "polish";
+List<CaseInsensitiveString> list = new ArrayList<>();
+list.add(cis);
+  ```
+
+와 같은 코드에서 list.contains(s)의 결과가 false를 반환하지만 OpenJDK 구현이 바뀌거나 다른 JDK의 경우 결과를 예측할 수 없다는 점에 있다.
+
 ## 상속 대신 컴포지션을 사용하여 equals 규약 지키기
+
+### 추이성 위반 사례
+```java
+package item10;
+
+public class Point {
+    private final int x;
+    private final int y;
+
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!(o instanceof Point))
+            return false;
+        Point p = (Point) o;
+        return p.x == x && p.y == y;
+    }
+//나머지 코드 생략
+}
+
+public class ColorPoint extends Point {
+    private final Color color;
+
+    public ColorPoint(int x, int y, Color color) {
+        super(x, y);
+        this.color = color;
+    }
+//나머지 코드 생략
+}
+```
+위의 코드를 생각해보자.
+
+
+```java
+@Override
+public boolean equals(Object o) {
+	if (!(o instanceof ColorPoint))
+		return false;
+	return super.equals(o) && ((ColorPoint) o).color == color;
+}
+```
+대칭성을 위반하는 사례이다.
+
+
+```java
+@Override public boolean equals(Object o) {
+	if (!(o instanceof Point))
+		return false;
+// 색상없는 일반 Point면 색상 무시해서 비교
+	if (!(o instanceof ColorPoint))
+		return o.equals(this);
+//Color 포인트면 색상까지 비교
+	return super.equals(o) && ((ColorPoint) o).color == color;
+}
+```
+이제 대칭성은 지키지만 추이성을 위반한다.
+```java
+ColorPoint p1 = new ColorPoint(1, 2, Color.RED);
+Point p2 = new Point(1, 2);
+ColorPoint p3 = new ColorPoint(1, 2, Color.BLUE);
+```
+의 사례를 보면,
+p1.equals(p2), p2.equals(p3)는 true지만
+
+p1.equals(p3) false를 반환하기 때문에 명백하게 추이성을 위반한다
+
+해결법은?
+
 ColorPoint가 Point를 extends하는 대신에, ColorPoint 내에 Point 필드를 private으로 가지고, 해당 위치의 Point 뷰를 반환하는 public  메소드를 제공하는 방식이다.
 
 ```java
@@ -89,7 +172,7 @@ public class ColorPoint {
     }
 }
 ```
-위의 코드는 ColorPoint 인스턴스가 같은 위치에 있는 Point와 동일한 색상을 가지고 있는지 비교함으로써 equals 규약들을 만족시키는 것을 보여준다.상속 대신 컴포지션을 사용하는 방식(item-18)은 equals 계약의 대칭성, 추이성, 일관성 요구 사항을 위반하지 않으면서 값을 추가할 수 있게 한다.
+상속 대신 컴포지션을 사용하는 방식(item-18)은 equals 계약의 대칭성, 추이성, 일관성 요구 사항을 위반하지 않으면서 값을 추가할 수 있게 한다.
 
 
 
@@ -97,7 +180,7 @@ public class ColorPoint {
 - 자기 참조 확인: == 연산자를 사용하여 입력된 객체가 현재 객체와 동일한 참조인지 확인한다.
 - 인스턴스 타입 확인: instanceof 연산자를 사용하여 입력된 객체가 올바른 타입인지 확인한다.
 - 필드별 값 비교: 클래스 내의 "중요한" 필드들이 입력된 객체의 해당 필드와 일치하는지 비교한다.
-- hashCode 오버라이딩: equals를 오버라이딩할 때는 반드시 hashCode도 오버라이딩해야 한다. 이는 equals가 true를 반환하는 두 객체가 동일한 해시 코드를 반환해야 하는 규약 때문이다.
+- hashCode 오버라이딩: equals를 오버라이딩할 때는 반드시 hashCode도 오버라이딩해야 한다. 이는 equals가 true를 반환하는 두 객체가 동일한 해시 코드를 반환해야 하는 규약 때문이다. [item-11]
 
 잘 구현된 예시는 아래와 같다.
 ```java
@@ -125,4 +208,5 @@ public final class PhoneNumber {
     }
 }
 ```
-이 코드는 PhoneNumber 클래스의 인스턴스가 논리적으로 같은지 비교하기 위해 equals 메소드를 오버라이딩하는 방법을 보여준다. 대칭성, 추이성, 일관성을 잘 지키는 것을 알 수 있다.(hashCode는 생략)
+이 코드는 PhoneNumber 클래스의 인스턴스가 논리적으로 같은지 비교하기 위해
+equals 메소드를 오버라이딩하는 방법을 보여준다. <br>대칭성, 추이성, 일관성을 잘 지키는 것을 알 수 있다.(hashCode는 생략)

@@ -19,6 +19,7 @@
 | 아이템 이름 | 주제 |
 |--------|--------|
 | Item 10 | [equals는 일반 규약을 지켜 재정의하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/3%EC%9E%A5%20%EB%AA%A8%EB%93%A0%20%EA%B0%9D%EC%B2%B4%EC%9D%98%20%EA%B3%B5%ED%86%B5%20%EB%A9%94%EC%84%9C%EB%93%9C(Methods%20Common%20to%20All%20Objects.)/%5Bitem10%5Dequals%EB%8A%94%20%EC%9D%BC%EB%B0%98%20%EA%B7%9C%EC%95%BD%EC%9D%84%20%EC%A7%80%EC%BC%9C%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EB%9D%BC.md) |
+| Item 11 | [equals를 재정의하려거든 hashCode도 재정의하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/3%EC%9E%A5%20%EB%AA%A8%EB%93%A0%20%EA%B0%9D%EC%B2%B4%EC%9D%98%20%EA%B3%B5%ED%86%B5%20%EB%A9%94%EC%84%9C%EB%93%9C(Methods%20Common%20to%20All%20Objects.)/%5Bitem11%5Dequals%EB%A5%BC%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EB%A0%A4%EA%B1%B0%EB%93%A0%20hashCode%EB%8F%84%20%EC%9E%AC%EC%A0%95%EC%9D%98%ED%95%98%EB%9D%BC.md) |
 
 ## 4장 클래스와 인터페이스
 
@@ -51,11 +52,13 @@
 | Item 34 | [int 상수 대신 열거 타입을 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem34%5Dint%20%EC%83%81%EC%88%98%20%EB%8C%80%EC%8B%A0%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
 | Item 35 | [ordinal 메서드 대신 인스턴스 필드를 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem35%5Dordinal%20%EB%A9%94%EC%84%9C%EB%93%9C%20%EB%8C%80%EC%8B%A0%20%EC%9D%B8%EC%8A%A4%ED%84%B4%EC%8A%A4%20%ED%95%84%EB%93%9C%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
 | Item 36 | [비트 필드 대신 EnumSet을 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem36%5D%EB%B9%84%ED%8A%B8%20%ED%95%84%EB%93%9C%20%EB%8C%80%EC%8B%A0%20EnumSet%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
+| Item 37 | [ordinal 인덱싱 대신 EnumMap을 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/6%EC%9E%A5%20%EC%97%B4%EA%B1%B0%20%ED%83%80%EC%9E%85%EA%B3%BC%20%EC%95%A0%EB%84%88%ED%85%8C%EC%9D%B4%EC%85%98%20(Enum%20type%20and%20annotation)/%5Bitem37%5Dordinal%20%EC%9D%B8%EB%8D%B1%EC%8B%B1%20%EB%8C%80%EC%8B%A0%20EnumMap%EC%9D%84%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
 
 ## 7장 람다와 스트림
 
 | 아이템 이름 | 주제 |
 |--------|--------|
+| Item 42 | [익명 클래스보다는 람다를 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/7%EC%9E%A5%20%EB%9E%8C%EB%8B%A4%EC%99%80%20%EC%8A%A4%ED%8A%B8%EB%A6%BC%20(Lambdas%20and%20Streams)%20/item%2042.%20%EC%9D%B5%EB%AA%85%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%B3%B4%EB%8B%A4%EB%8A%94%20%EB%9E%8C%EB%8B%A4%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
 
 ## 8장 메서드
 
@@ -105,4 +108,4 @@
 | Item 85 | [자바 직렬화의 대안을 찾으라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem85%5D%EC%9E%90%EB%B0%94%20%EC%A7%81%EB%A0%AC%ED%99%94%EC%9D%98%20%EB%8C%80%EC%95%88%EC%9D%84%20%EC%B0%BE%EC%9C%BC%EB%9D%BC.md) |
 | Item 86 | [Serializable을 구현할지는 신중히 결정하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem86%5DSerializable%EC%9D%84%20%EA%B5%AC%ED%98%84%ED%95%A0%EC%A7%80%EB%8A%94%20%EC%8B%A0%EC%A4%91%ED%9E%88%20%EA%B2%B0%EC%A0%95%ED%95%98%EB%9D%BC.md) |
 | Item 87 | [커스텀 직렬화 형태를 고려해보라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem87%5D%EC%BB%A4%EC%8A%A4%ED%85%80%20%EC%A7%81%EB%A0%AC%ED%99%94%20%ED%98%95%ED%83%9C%EB%A5%BC%20%EA%B3%A0%EB%A0%A4%ED%95%B4%EB%B3%B4%EB%9D%BC.md) |
-
+| Item 88 | [readObject 메서드는 방어적으로 작성하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/12%EC%9E%A5%20%EC%A7%81%EB%A0%AC%ED%99%94(Serialize)/%5Bitem88%5DreadObject%20%EB%A9%94%EC%84%9C%EB%93%9C%EB%8A%94%20%EB%B0%A9%EC%96%B4%EC%A0%81%EC%9C%BC%EB%A1%9C%20%EC%9E%91%EC%84%B1%ED%95%98%EB%9D%BC.md) |

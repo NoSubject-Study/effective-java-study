@@ -59,6 +59,7 @@
 | 아이템 이름 | 주제 |
 |--------|--------|
 | Item 42 | [익명 클래스보다는 람다를 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/7%EC%9E%A5%20%EB%9E%8C%EB%8B%A4%EC%99%80%20%EC%8A%A4%ED%8A%B8%EB%A6%BC%20(Lambdas%20and%20Streams)%20/item%2042.%20%EC%9D%B5%EB%AA%85%20%ED%81%B4%EB%9E%98%EC%8A%A4%EB%B3%B4%EB%8B%A4%EB%8A%94%20%EB%9E%8C%EB%8B%A4%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md) |
+| Item 43 | [람다보다는 메서드 참조를 사용하라](https://github.com/NoSubject-Study/effective-java-study/blob/main/7%EC%9E%A5%20%EB%9E%8C%EB%8B%A4%EC%99%80%20%EC%8A%A4%ED%8A%B8%EB%A6%BC%20(Lambdas%20and%20Streams)%20/item%2043.%20%EB%9E%8C%EB%8B%A4%EB%B3%B4%EB%8B%A4%EB%8A%94%20%EB%A9%94%EC%86%8C%EB%93%9C%20%EC%B0%B8%EC%A1%B0%EB%A5%BC%20%EC%82%AC%EC%9A%A9%ED%95%98%EB%9D%BC.md)|
 
 ## 8장 메서드
 

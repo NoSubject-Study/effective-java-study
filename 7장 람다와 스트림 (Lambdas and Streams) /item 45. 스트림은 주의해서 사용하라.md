@@ -7,6 +7,8 @@ Use streams judiciously
 
 ### 스트림 (stream sequence)
 - 데이터 원소의 유한 혹은 무한 시퀀스를 뜻하는 스트림
+  - A sequence of elements supporting sequential and parallel aggregate operations
+  - 데이터 처리 연산을 지원하도록 소스에서 추출된 요소
   - 컬렉션, 배열, 파일, 정규표현식 패턴 매처, 난수 생성기 혹은 다른 스트림 등이 스트림의 원소가 될 수 있음
   - 스트림 안의 데이터 원소는 객체 참조, 기본 타입 값
     - 기본 타입으로는 int, long, double을 지원 (char은 지원하지 않음)

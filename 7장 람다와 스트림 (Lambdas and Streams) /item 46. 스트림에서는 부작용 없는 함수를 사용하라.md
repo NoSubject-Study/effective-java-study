@@ -65,37 +65,54 @@ private static final Map<String, Operation> stringToEnum =
 ```
 #### 📍 새로운 맵 생성 : 각 키와 해당 키의 특정 원소를 연관 짓는 맵을 생성
 ``` java
- Map<Artist, Album> topHits = albums.collect(
-        toMap(Album::artist, a->a, maxBy(comparing(Album::sales))));
+toMap(keyMapper, valueMapper)
+   
+ Map<String, Student> studentMaps = students.collect(
+        toMap(student->student.getName(), student->student);
 ```
 #### 📍 마지막에 쓴 값을 취하는 예시
 ``` java
 toMap(keyMapper, valueMapper, (oldVal, newVal) -> newVal)
+
+// albums : 다양한 artist들의 앨범들을 가진 스트림
+// 음악가 별로 베스트 앨범을 연관짓는 
+ Map<Artist, Album> topHits = albums.collect(
+        toMap(Album::artist, a->a, maxBy(comparing(Album::sales))));
 ```
 
 ### Collectors의 groupingBy 활용하기
-- groupingBy는 입력으로 분류 함수 (classifier)를 받고 출력으로는 원소들을 카테고리별로 모아 놓은 맵을 담은 수집기를 반환
+- groupingBy는 입력으로 분류 함수 (classifier)를 받고 출력으로는 원소들을 카테고리별로 모아 놓은 맵을 담은 컬렉터를 반환
 - 분류함수(classifier) : 입력받은 원소가 속하는 카테고리 반환
   - 반환된 카테고리는 해당 원소의 맵 키로 사용
   - 반환된 맵에 담긴 각각의 값은 해당 카테고리(키)에 속하는 원소들을 모두 담은 리스트
+``` java
+Map<Country, List<Person>> peopleByCountry = people.stream()
+                     .collect(groupingBy(person -> person.getCountry()));
+```
 
 #### 📍 분류 함수(classifier)만 받는 groupingBy 예시
 ``` java
-words.collect(groupingBy(word -> alphaetize(word)));
+Map<String, List<String>> stringListMap = words.collect(groupingBy(word -> alphaetize(word)));
 ```
+- 반환된 맵에 담긴 각각의 값 : 해당 카테고리에 속하는 원소들을 모두 담은 리스트
+  
 #### 📍 다운스트림, 분류함수를 받는 groupingBy 예시
 ``` java
 Map<String, Long> freq = words.collect(groupingBy(String::toLowerCase, counting());
 ```
+- 리스트 외의 값을 갖는 맵을 생성하려고 할 때, Classifier와 다운스트림 컬렉터 함께 명시
+- toSet, Counting
+- 
 #### 📍 맵 팩터리, 다운스트림, 분류함수를 받는 groupingBy 예시
 ``` java
 // 학생 객체를 학급 별로 그룹화하고, 각 그룹에 대해 학생 수 계산
 // TreeMap을 사용하여 결과를 정렬된 맵으로 저장
+// 반별로 학생 수 계산
 Map<String, Long> studentCountByClass = students.stream()
                .collect(Collectors.groupingBy(
-                Student::getClassroom, // classifier: 학급을 기준으로 그룹화
-                TreeMap::new, // mapFactory: TreeMap을 사용하여 그룹화된 결과 저장
-                Collectors.counting() // downstream: 학생 수를 계산
+                   Student::getClassroom, // classifier: 학급을 기준으로 그룹화
+                   TreeMap::new, // mapFactory: TreeMap을 사용하여 그룹화된 결과 저장
+                   Collectors.counting() // downstream: 학생 수를 계산
 ));
 ```
 

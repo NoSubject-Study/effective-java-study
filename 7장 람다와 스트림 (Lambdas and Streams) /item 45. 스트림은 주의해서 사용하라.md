@@ -15,6 +15,8 @@ Use streams judiciously
 - 이 원소들로 수행하는 연산 단계를 표현하는 스트림 파이프 라임
 
 ### 스트림 파이프라인(pipeline)
+![image](https://github.com/NoSubject-Study/effective-java-study/assets/37797830/ad1155b5-bba9-474c-8c6f-b03c582f2423)
+
 ``` java
         List<String> words = Arrays.asList("hello", "world", "java", "stream");
         words.stream()

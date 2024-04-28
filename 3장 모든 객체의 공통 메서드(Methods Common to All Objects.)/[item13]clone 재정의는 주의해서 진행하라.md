@@ -73,42 +73,39 @@ public class PhoneNumber implements Cloneable {
 Object 타입을 PhoneNumber 타입으로 캐스팅하여 리턴해주는 것을 알 수 있다. -> API 사용성 향상
 
 ## Stack 클래스에서의 예시
-
+아래의 Stack 클래스는 가변 상태를 참조하고 있는 예시를 보여준다.
 ```java
-public class Stack {
+package item13;
+
+public class Stack implements Cloneable {
 	private Object[] elements;
 	private int size = 0;
-	private static final int DEFAULT_INITIAL_CAPACITY = 16;
-    
+	private static final int DEFAULT_INITIAL_CAPACITY = 10;
+
 	public Stack() {
 		this.elements = new Object[DEFAULT_INITIAL_CAPACITY];
 	}
-    
-	public void push(Object e) {
+
+	public void push(Object value) {
 		ensureCapacity();
-	elements[size++] = e;
+		elements[size++] = value;
 	}
-    
+
 	public Object pop() {
 		if (size == 0)
-			throw new EmptyStackException();
+			throw new IllegalStateException("Stack is empty");
 		Object result = elements[--size];
-		elements[size] = null; 
-        return result;
+		elements[size] = null;
+		return result;
 	}
 
 	private void ensureCapacity() {
-		if (elements.length == size)
-			elements = Arrays.copyOf(elements, 2 * size + 1);
+		if (elements.length == size) {
+			elements = java.util.Arrays.copyOf(elements, 2 * size + 1);
+		}
 	}
-}
-```
 
-이 클래스를 Cloneable 하게 하려면, cloneable 인터페이스를 구현하고 clone 메소드에서 super.clone()을 리턴해주면 되는데 elements 필드가 원래의 Stack 인스턴스와 같은 배열을 참조하게 되는 문제가 발생한다.
-
-이를 해결하는 코드는 아래와 같다.
-```java
-	@Override 
+	@Override
 	public Stack clone() {
 		try {
 			Stack result = (Stack) super.clone();
@@ -117,10 +114,31 @@ public class Stack {
 		} catch (CloneNotSupportedException e) {
 			throw new AssertionError();
 		}
+	}
+
+	public static void main(String[] args) {
+		Stack original = new Stack();
+		original.push("element1");
+		original.push(new StringBuilder("element2"));
+
+		Stack cloned = original.clone();
+
+		StringBuilder originalElement = (StringBuilder) original.pop();
+		StringBuilder clonedElement = (StringBuilder) cloned.pop();
+
+		originalElement.append(" modified");
+
+		System.out.println("Original element after modification: " + originalElement);
+		System.out.println("Cloned element after original modification: " + clonedElement);
+	}
 }
 
 ```
-가변 상태를 참조하는 경우에는 이렇게 stack의 내부를 복사하는 방식을 이용해야 한다.(재귀적)
+출력결과는 아래와 같다.
+```text
+Original element after modification: element2 modified
+Cloned element after original modification: element2 modified
+```
 
 
 ## HashTable의 예시
@@ -166,8 +184,9 @@ public class HashTable implements Cloneable {
 
 여기서는 
 ```java
-        Entry deepCopy() {
-            return new Entry(key, value, next == null ? null : next.deepCopy());
+        Entry deepCopy(){
+    		return new Entry(key,value,next==null?null:next.deepCopy());
+	}
 ```
 의 코드를 통해서 재귀적으로 깊은 복사를 한다. 이 때 재귀적 방법은 스택 오버플로우를 일으킬 수 있어서 반복문의 사용으로 이를 대체할 수 있다.
 
@@ -187,6 +206,10 @@ Entry deepCopy() {
 - 상속을 고려한 클래스일 경우 피한다. 상속 받은 클래스가 clone() 메소드를 오버라이딩할 경우 clone()의 동작을 예측하기 어렵다.
 - final 필드와의 충돌 (clone() 메소드에서는 final 필드의 값을 변경하지 못함)
 
+
+## clone 메소드 안에서는 오버라이딩 가능한 메서드의 호출을 피해야 한다.
+하위 클래스에서 clone의 상태를 수정하기 전에 다른 메소드가 실행될 수 있어 동작 예상이 어렵다.
+
 ## 스레드 안전성
 
 스레드 안전한 클래스에서 Cloneable을 구현할 때, Object의 clone 메소드는 동기화되어 있지 않아서 clone 메소드를 오버라이딩 해야한다.
@@ -199,6 +222,9 @@ public synchronized Object clone() throws CloneNotSupportedException {
 
 
 ## clone() 메소드 대신, 복사 생성자 / 복사 팩토리 메소드
+
+- public Yum(Yum yum) { ... }; : 클래스 자신을 인자로 받는 생성자
+- public static Yum newInstance(Yum yum) { ... }; : 복사 생성자의 정적 팩토리 메소드
 
 
 앞서 살펴본 바와 같이 clone() 메소드를 사용하는데에는 큰 복잡성이 따르기 때문에 그 대안으로 복사 생성자, 복사 팩토리 메소드가 제시된다. 
